@@ -28,9 +28,3 @@ jobs:
         with:
           name: resume-files
           path: output/
-                - name: Upload output as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: resume-files
-          path: output/
-
