@@ -2,7 +2,8 @@ name: Build Resume
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -18,10 +19,12 @@ jobs:
       - name: Build Docker Image
         run: docker build -t resume-builder .
 
+      - name: Prepare output directory
+        run: mkdir output
+
       - name: Run Docker Container to generate files
         run: |
-          mkdir output
-          docker run --rm -v "${{ github.workspace }}/output:/data" resume-builder
+          docker run --rm -v ${{ github.workspace }}/output:/data/output resume-builder
 
       - name: Upload output as artifact
         uses: actions/upload-artifact@v4
