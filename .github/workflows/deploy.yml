@@ -19,7 +19,7 @@ jobs:
           docker run --rm -v ${{ github.workspace }}/output:/data resume-builder
 
       - name: Upload output files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: resume-files
           path: output/
