@@ -4,5 +4,6 @@ WORKDIR /data
 
 COPY resume.md .
 
-RUN pandoc resume.md -o resume.html --standalone
-RUN pandoc resume.md -o resume.pdf
+RUN mkdir -p output && \
+    pandoc resume.md -o output/resume.html --standalone && \
+    pandoc resume.md -o output/resume.pdf
